@@ -61,14 +61,6 @@ create table convention(
     categorie_regime varchar(10)
 );
 
-CREATE TABLE plat (
-    idplat SERIAL PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL,
-    categorie VARCHAR(100) NOT NULL,
-    calories DECIMAL(10,2) NOT NULL,
-    image VARCHAR(100)
-);
-
 create table transaction(
     idtransaction serial primary key,
     iduser int references user(iduser),
@@ -125,8 +117,17 @@ VALUES
     (default, 15, 'medium'),
     (default, 20, 'hard');
 
+CREATE TABLE plat (
+    idplat SERIAL PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    categorie VARCHAR(100) NOT NULL,
+    calories DECIMAL(10,2) NOT NULL,
+    image VARCHAR(100)
+);
+
+
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Salade de poulet grillé', 'perdre',300, 'Salade_de_poulet_grillé.jpg');
-INSERT INTO plat (nom,categorie, calories, image) VALUES ('Saumon poché avec légumes vapeur', 'perdre',400, 'Saumon_poché_avec_légumes_vapeur.jpg';
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Saumon poché avec légumes vapeur', 'perdre',400, 'Saumon_poché_avec_légumes_vapeur.jpg');
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Wraps aux légumes', 'perdre',250, 'Wraps_aux_légumes.jpg');
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Bol de quinoa aux légumes rôtis', 'perdre',350, 'Bol_de_quinoa_aux_légumes_rôtis.jpg');
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Salade de crevettes et avocat', 'perdre',200, 'Salade_de_crevettes_et_avocat.jpg');
