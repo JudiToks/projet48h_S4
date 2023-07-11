@@ -1,34 +1,109 @@
 (function($) {
-    var form = $("#signup-form");
 
+    var form = $("#signup-form");
+    form.validate({
+        errorPlacement: function errorPlacement(error, element) {
+             element.before(error); 
+        },
+        rules: {
+            first_name : {
+                required: true,
+            },
+            last_name : {
+                required: true,
+            },
+            email : {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            first_name : {
+                required : "Veuillez entrer un nom correct"
+            },
+            last_name : {
+                required : "Veuillez entrer un prénom correct"
+            },
+            email : {
+                required : "Veuillez entrer un email correct",
+                email: "Entrer un email valide !"
+            }
+        },
+        onfocusout: function(element) {
+            $(element).valid();
+        },
+        highlight : function(element, errorClass, validClass) {
+            $(element).parent().parent().find('.form-group').addClass('form-error');
+            $(element).removeClass('valid');
+            $(element).addClass('error');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parent().parent().find('.form-group').removeClass('form-error');
+            $(element).removeClass('error');
+            $(element).addClass('valid');
+        }
+    });
     form.steps({
         headerTag: "h3",
         bodyTag: "fieldset",
         transitionEffect: "fade",
         labels: {
-            previous : 'Précédent',
-            next : 'Suivant',
-            finish : 'Terminer',
+            previous : 'Previous',
+            next : 'Next',
+            finish : 'Finish',
             current : ''
         },
         titleTemplate : '<h3 class="title">#title#</h3>',
-        onStepChanging: function (event, currentIndex, newIndex) {
-            // Scroll jusqu'au bouton "Next", "Previous" ou "Finish"
-            var actionButton = form.find('.actions a:eq(' + newIndex + ')');
-            $('html, body').animate({
-                scrollTop: actionButton.offset().top
-            }, 500);
-            return true;
+        onInit : function (event, currentIndex) { 
+            // Suppress (skip) "Warning" step if the user is old enough.
+            if(currentIndex === 0) {
+                form.find('.actions').addClass('test');
+            }
         },
-        onFinished: function (event, currentIndex) {
-            alert('Submitted');
+        onStepChanging: function (event, currentIndex, newIndex)
+        {
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
         },
-        onStepChanged: function (event, currentIndex, priorIndex) {
-            // Scroll jusqu'au bouton "Next", "Previous" ou "Finish"
-            var actionButton = form.find('.actions a:eq(' + currentIndex + ')');
-            $('html, body').animate({
-                scrollTop: actionButton.offset().top
-            }, 500);
+        onFinishing: function (event, currentIndex)
+        {
+            form.validate().settings.ignore = ":disabled";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex)
+        {
+            alert('Sumited');
+        },
+        onStepChanged: function (event, currentIndex, priorIndex)
+        {
+
+         
         }
     });
+
+    jQuery.extend(jQuery.validator.messages, {
+        required: "",
+        remote: "",
+        email: "",
+        url: "",
+        date: "",
+        dateISO: "",
+        number: "",
+        digits: "",
+        creditcard: "",
+        equalTo: ""
+    });
+ 
 })(jQuery);
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('.your_picture_image')
+                .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

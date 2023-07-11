@@ -801,6 +801,7 @@ section {
 }
 
 .au-btn--submit {
+  height: 50px;
   color:#31525B;
   position: relative;
   right: 0;
