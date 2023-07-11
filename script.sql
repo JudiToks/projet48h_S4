@@ -52,7 +52,10 @@ create table type_regime(
     idtype_regime serial primary key,
     categorie varchar(10),
     nbrrepas int,
-    nbrsport int
+    nbrsport int,
+    pourc_viande double precision,
+    pourc_poisson double precision,
+    pourc_volaille double precision
 );
 
 create table convention(
