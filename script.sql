@@ -17,8 +17,16 @@ create table details_user(
     taille int,
     sexe varchar(10),
     adresse varchar(30),
-    img varchar(50),
-    argent double precision
+    img varchar(50)
+);
+
+create table transaction(
+    idtransaction serial primary key,
+    iduser int references user(iduser),
+    money_entre double precision,
+    money_sortie double precision,
+    money double precision,
+    temps timestamp
 );
 
 create table code(
@@ -61,6 +69,13 @@ create table convention(
     categorie_regime varchar(10)
 );
 
+CREATE TABLE plat (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    categorie VARCHAR(100) NOT NULL,
+    calories DECIMAL(10,2) NOT NULL
+);
+
 INSERT INTO user(iduser, username, mail, mdp, type)
 VALUES
     (default, 'admin', 'admin@gmail.com', 'admin', 1),
@@ -69,7 +84,7 @@ VALUES
     (default, 'User3', 'user3@gmail.com', 'password3', 0),
     (default, 'User4', 'user4@gmail.com', 'password4', 0);
 
-INSERT INTO code (idcode, code_value, quantity, used)
+INSERT INTO code (idcode, designation, valeur, etat)
 VALUES
     (default, '830203956128502', 1000, 0),
     (default, '426395048362026', 1000, 0),
@@ -107,3 +122,23 @@ VALUES
     (default, 10, 'easy'),
     (default, 15, 'medium'),
     (default, 20, 'hard');
+
+INSERT INTO plat (nom,categorie, calories) VALUES ('Salade de poulet grillé', 'perdre',300);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Saumon poché avec légumes vapeur', 'perdre',400);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Wraps aux légumes', 'perdre',250);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Bol de quinoa aux légumes rôtis', 'perdre',350);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Salade de crevettes et avocat', 'perdre',200);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Soupe aux légumes', 'perdre',150);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Omelette aux légumes', 'perdre',250);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Poulet rôti avec légumes sautés', 'perdre',400);
+INSERT INTO plat (nom,categorie, calories) VALUES ('Pâtes aux légumes grillés', 'perdre',350);
+
+INSERT INTO plat (nom, categorie, calories) VALUES ('Steak de bœuf', 'gagne', 400);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Poulet grillé', 'gagne', 350);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Saumon grillé', 'gagne', 300);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Omelette aux légumes et fromage', 'gagne', 250);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Pâtes au pesto de basilic et poulet', 'gagne', 450);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Riz brun avec légumes et tofu', 'gagne', 400);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Smoothie protéiné aux fruits et beurre de cacahuète', 'gagne', 350);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Salade de quinoa avec avocat et poulet', 'gagne', 300);
+INSERT INTO plat (nom, categorie, calories) VALUES ('Yaourt grec avec noix et miel', 'gagne', 200);
