@@ -120,53 +120,15 @@ class Modelbdd extends CI_Model
         return $query;
     }
 
-    // public function selectjoinwhere($colcondition, $valeurcondition, $nomtable, $colonnes, $nomtable2, $on)
-    // {
-    //     $this->db->select($colonnes);
-    //     $this->db->from($nomtable);
-    //     $this->db->join($nomtable2, $on);
-    //     // $this->db->where($valeurcondition, $colcondition);
-
-    //     // select * from detailFacture join facture on facture.idFacture=detailFacture.idFacture where idJournal=1
-    //     // $this->db->select(' * from detailFacture join facture on facture.idFacture=detailFacture.idFacture where idJournal=1', FALSE);
-    //     // $query = $this->db->get('detailFacture');
-
-    //     $query = $this->db->get();
-    //     return $query;
-    // }
-    public function gerfacturedetailfacture($idJournal)
-    {
-        // select * from detailFacture join facture on facture.idFacture=detailFacture.idFacture where idJournal=1
-        $this->db->select(' * from detailFacture join facture on facture.idFacture=detailFacture.idFacture where idJournal=' . $idJournal, FALSE);
-        $query = $this->db->get();
-
-        return $query;
-    }
 
     // select * from comptegenerale where numero like '20%' order by numero;
-    public function getcomptebynum($num)
+    public function query($req)
     {
-        $query = $this->db->query('select * from comptegenerale where numero like \'' . $num . '%\' order by numero');
+        $query = $this->db->query($req);
+        // Afficher la requête SQL résultante
+        // $sql = $this->db->last_query();
+        // echo $sql;
+
         return $query;
-    }
-
-    // select compte,facture.idJournal,sum(credit),sum(debit),debut,fin from facture join journal on facture.idJournal=journal.idJournal where compte = 10100 and debut >= '2023-04-21'
-    public function getdmoinscbynum($num, $debut, $cloture)
-    {
-        $query = $this->db->query(
-            'select facture.idJournal,sum(credit)-sum(debit) as dmoinsc,debut,fin
-             from facture join journal on facture.idJournal=journal.idJournal 
-             where compte =' . $num . ' and debut >=\'' . $debut . '\' and fin <=\'' . $cloture . '\' '
-        );
-        $result = array();
-        foreach ($query->result_array() as $c) {
-            $result['dmoinsc'] = $c['dmoinsc'];
-        }
-        // var_dump($result);
-        return $result;
-    }
-
-    public function getEtatFinResulat()
-    {
     }
 }
