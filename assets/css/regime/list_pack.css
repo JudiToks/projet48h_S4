@@ -1,0 +1,27 @@
+.container
+{
+    margin-top: 1em;
+}
+
+h1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .5em;
+}
+
+hr
+{
+    width: 50%; 
+    margin: auto;
+    height: .2em;
+    background-color: black;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}

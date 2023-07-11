@@ -1,0 +1,25 @@
+.container
+{
+    background-color: bisque;
+    margin-top: 1em;
+}
+
+.row
+{
+    gap: 1em;
+    width: 100%;
+}
+
+img
+{
+    height: 15em;
+    width: 15em;
+    margin: auto;
+}
+
+p
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
