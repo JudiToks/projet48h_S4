@@ -44,7 +44,7 @@ create table sport(
     designation varchar(20),
     categorie varchar(15),
     calorie_par_heure double precision,
-    img varchar(15);
+    img varchar(15)
 );
 
 create table type_regime(
@@ -58,6 +58,14 @@ create table convention(
     idconvention serial primary key,
     poids double precision,
     categorie_regime varchar(10)
+);
+
+CREATE TABLE plat (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    categorie VARCHAR(100) NOT NULL,
+    calories DECIMAL(10,2) NOT NULL,
+    image VARCHAR(100)
 );
 
 create table transaction(
@@ -115,15 +123,6 @@ VALUES
     (default, 10, 'easy'),
     (default, 15, 'medium'),
     (default, 20, 'hard');
-
-
-CREATE TABLE plat (
-  id SERIAL PRIMARY KEY,
-  nom VARCHAR(100) NOT NULL,
-  categorie VARCHAR(100) NOT NULL,
-  calories DECIMAL(10,2) NOT NULL,
-  image VARCHAR(100)
-);
 
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Salade de poulet grillé', 'perdre',300);
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Saumon poché avec légumes vapeur', 'perdre',400);
