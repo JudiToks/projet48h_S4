@@ -460,11 +460,11 @@ section {
 }
 
 .au-btn--green {
-  background: #ffe12d;
+  background: #31525B;
 }
 
 .au-btn--green:hover {
-  background: #122244;
+  background: #F97B22;
   color: #fff;
 }
 
@@ -801,7 +801,7 @@ section {
 }
 
 .au-btn--submit {
-  color: #122244;
+  color:#31525B;
   position: relative;
   right: 0;
   min-width: 65px;
@@ -815,7 +815,7 @@ section {
 }
 
 .au-btn--submit:hover {
-  background: #122244;
+  background: #1ed760;
   
 }
 
@@ -1701,6 +1701,7 @@ section {
 
 .header-mobile .header-mobile-inner {
   display: -webkit-box;
+  margin-top: -3em;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -1723,7 +1724,7 @@ section {
   padding: 0;
   line-height: 1;
   vertical-align: top;
-  background: #fff;
+  /* background: #fff; */
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -4305,7 +4306,7 @@ section {
 }
 
 .table-earning thead th {
-  background: #122244;
+  background: #31525B;
   font-size: 16px;
   color: #fff;
   vertical-align: middle;
@@ -4729,13 +4730,13 @@ section {
   padding: 0 14px;
 }
 
-.status--simple {
+/* .status--simple {
   color: #00ad5f;
 }
 
 .status--fidele {
   color: #fa4251;
-}
+} */
 
 .table-data3 thead {
   background: #333;
