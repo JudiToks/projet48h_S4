@@ -136,7 +136,7 @@ INSERT INTO plat (nom,categorie, calories, image) VALUES ('Omelette aux légumes
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Poulet rôti avec légumes sautés', 'perdre',400, 'Poulet_rôti_avec_légumes_sautés.jpg');
 INSERT INTO plat (nom,categorie, calories, image) VALUES ('Pâtes aux légumes grillés', 'perdre',350, 'Pâtes_aux_légumes_grillés.jpg');
 
-INSERT INTO plat (nom, categorie, calories, image) VALUES ('Steak de bœuf', 'gagne', 400, 'Steak_de_bœuf.jpg');
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Steak de boeuf', 'gagne', 400, 'Steak_de_boeuf.jpg');
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Poulet grillé', 'gagne', 350, 'Poulet_grillé.jpg');
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Saumon grillé', 'gagne', 300, 'Saumon_grillé.jpg');
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Omelette aux légumes et fromage', 'gagne', 250, 'Omelette_aux_légumes_et_fromage.jpg');
