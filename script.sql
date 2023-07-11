@@ -157,3 +157,6 @@ INSERT INTO plat (nom, categorie, calories, image) VALUES ('Smoothie protéiné 
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Salade de quinoa avec avocat et poulet', 'gagne', 300, 'Salade_de_quinoa_avec_avocat_et_poulet.jpg');
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Yaourt grec avec noix et miel', 'gagne', 200, 'Yaourt_grec_avec_noix_et_miel.jpg');
 
+INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 1000, 0, 0, '2023-07-11 10:45:00');
+INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 0, 800, 1000, '2023-07-11 10:50:00');
+INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 1000, 0, 200, '2023-07-11 10:55:00');
