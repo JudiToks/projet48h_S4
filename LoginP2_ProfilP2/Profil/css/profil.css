@@ -110,6 +110,7 @@ list-type-ulli, .steps ul, .actions ul {
   /* Legacy iOS */ }
 /* poppins-900 - latin */
 @font-face {
+  
    font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 900;
