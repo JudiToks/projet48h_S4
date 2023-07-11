@@ -73,6 +73,13 @@ create table transaction(
     temps timestamp
 );
 
+-- ito no notification
+create table validation_transaction(
+    idvalidation serial primary key,
+    idtransaction int references transaction(idtransaction),
+    etat int default 0
+);
+
 INSERT INTO user(iduser, username, mail, mdp, type)
 VALUES
     (default, 'admin', 'admin@gmail.com', 'admin', 1),

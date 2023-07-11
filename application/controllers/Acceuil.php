@@ -8,5 +8,6 @@ class Acceuil extends \CI_Controller
     {
         $this->load->view('header');
         $this->load->view('acceuil');
+        $this->load->view('footer');
     }
 }

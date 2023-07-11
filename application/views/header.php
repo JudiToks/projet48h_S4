@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url(); ?>assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="<?php echo base_url(); ?>assets/css/theme.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/header.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/homeCustomer.css">
 </head>
 <body>
 <div class="header">
@@ -85,6 +86,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="side-nav">
         <img src="<?php echo base_url(); ?>assets/img/logo1-removebg-preview (2).png" class="logo">
         <a href="#">Re-GYM</a>
+    </div>
+    <div class="text-box">
+        <p>Mangez bien,</p>
+        <h1>Vivez
+            mieux!</h1>
+        <div class="icon">
+            <img src="<?php echo base_url(); ?>assets/img/arrow.png">
+        </div>
     </div>
 </div>
 <script src="<?php echo base_url(); ?>assets/vendor/jquery-3.2.1.min.js"></script>
