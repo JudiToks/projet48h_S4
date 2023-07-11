@@ -40,13 +40,6 @@ create table prix_regime_jour(
     prix double precision
 );
 
-create table sport(
-    idsport serial primary key,
-    designation varchar(20),
-    categorie varchar(15),
-    calorie_par_heure double precision,
-    img varchar(15)
-);
 
 create table type_regime(
     idtype_regime serial primary key,
@@ -64,14 +57,6 @@ create table convention(
     categorie_regime varchar(10)
 );
 
-create table transaction(
-    idtransaction serial primary key,
-    iduser int references user(iduser),
-    money_entre double precision,
-    money_sortie double precision,
-    money double precision,
-    temps timestamp
-);
 
 -- ito no notification
 create table validation_transaction(
@@ -107,6 +92,14 @@ VALUES
     (default, '123456654328765', 1000, 0),
     (default, '098765430987623', 1000, 0);
 
+create table sport(
+    idsport serial primary key,
+    designation varchar(20),
+    categorie varchar(15),
+    calorie_par_heure double precision,
+    img varchar(30)
+);
+
 INSERT INTO sport(idsport, designation, categorie, calorie_par_heure, img)
 VALUES
     -- maison
@@ -124,9 +117,9 @@ VALUES
 
 INSERT INTO convention(idconvention, poids, categorie_regime)
 VALUES
-    (default, 10, 'easy'),
-    (default, 15, 'medium'),
-    (default, 20, 'hard');
+    (default, 1, 'easy'),
+    (default, 1.5, 'medium'),
+    (default, 2, 'hard');
 
 CREATE TABLE plat (
     idplat SERIAL PRIMARY KEY,
@@ -157,12 +150,22 @@ INSERT INTO plat (nom, categorie, calories, image) VALUES ('Smoothie protéiné 
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Salade de quinoa avec avocat et poulet', 'gagne', 300, 'Salade_de_quinoa_avec_avocat_et_poulet.jpg');
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Yaourt grec avec noix et miel', 'gagne', 200, 'Yaourt_grec_avec_noix_et_miel.jpg');
 
+create table transaction(
+    idtransaction INT AUTO_INCREMENT PRIMARY KEY,
+    iduser int references user(iduser),
+    money_entre double precision,
+    money_sortie double precision,
+    money double precision,
+    temps timestamp
+);
+
 INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 1000, 0, 0, '2023-07-11 10:45:00');
 INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 0, 800, 1000, '2023-07-11 10:50:00');
 INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 1000, 0, 200, '2023-07-11 10:55:00');
+INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(3, 0, 0, 30000, '2023-07-11 10:55:00');
 
 create table convention_kg(
-    idconvention_kg INT AUTO_INCREMENT PRIMARY KEY,
+    idconvention_kg SERIAL PRIMARY KEY,
     poids_depense_semaine DECIMAL(10,2) NOT NULL,
     categorie VARCHAR(50) NOT NULL
 );
@@ -171,3 +174,26 @@ create table convention_kg(
 INSERT INTO convention_kg (poids_depense_semaine, categorie) VALUES (0.25, 'easy');
 INSERT INTO convention_kg (poids_depense_semaine, categorie) VALUES (0.5, 'medium');
 INSERT INTO convention_kg (poids_depense_semaine, categorie) VALUES (1, 'hard');
+
+
+create table prix_journalier(
+    idprix_journalier SERIAL PRIMARY KEY,
+    prix_journalier DECIMAL(10,2) NOT NULL,
+    categorie VARCHAR(50) NOT NULL
+);
+INSERT INTO prix_journalier (prix_journalier, categorie) VALUES (30, 'easy');
+INSERT INTO prix_journalier (prix_journalier, categorie) VALUES (50, 'medium');
+INSERT INTO prix_journalier (prix_journalier, categorie) VALUES (70, 'hard');
+
+create table user_regime(
+    iduser_regime serial primary key,
+    iduser int references user(iduser),
+    sport varchar(1000),
+    objectif varchar(10) not null, -- gagner ou perdre
+    gain double precision,
+    debut timestamp,
+    pack varchar(10),
+    delai int,
+    prix double precision,
+    calendrier varchar(1000)
+);
