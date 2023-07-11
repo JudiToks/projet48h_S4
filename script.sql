@@ -76,7 +76,8 @@ create table transaction(
 -- ito no notification
 create table validation_transaction(
     idvalidation serial primary key,
-    idtransaction int references transaction(idtransaction),
+    iduser int references user(iduser),
+    idcode int references  code(idcode),
     etat int default 0
 );
 
