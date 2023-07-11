@@ -160,3 +160,14 @@ INSERT INTO plat (nom, categorie, calories, image) VALUES ('Yaourt grec avec noi
 INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 1000, 0, 0, '2023-07-11 10:45:00');
 INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 0, 800, 1000, '2023-07-11 10:50:00');
 INSERT INTO transaction(iduser, money_entre, money_sortie, money, temps) values(1, 1000, 0, 200, '2023-07-11 10:55:00');
+
+create table convention_kg(
+    idconvention_kg INT AUTO_INCREMENT PRIMARY KEY,
+    poids_depense_semaine DECIMAL(10,2) NOT NULL,
+    categorie VARCHAR(50) NOT NULL
+);
+
+
+INSERT INTO convention_kg (poids_depense_semaine, categorie) VALUES (0.25, 'easy');
+INSERT INTO convention_kg (poids_depense_semaine, categorie) VALUES (0.5, 'medium');
+INSERT INTO convention_kg (poids_depense_semaine, categorie) VALUES (1, 'hard');
