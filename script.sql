@@ -17,8 +17,16 @@ create table details_user(
     taille int,
     sexe varchar(10),
     adresse varchar(30),
-    img varchar(50),
-    argent double precision
+    img varchar(50)
+);
+
+create table transaction(
+    idtransaction serial primary key,
+    iduser int references user(iduser),
+    money_entre double precision,
+    money_sortie double precision,
+    money double precision,
+    temps timestamp
 );
 
 create table code(
@@ -61,6 +69,7 @@ create table convention(
     categorie_regime varchar(10)
 );
 
+
 INSERT INTO user(iduser, username, mail, mdp, type)
 VALUES
     (default, 'admin', 'admin@gmail.com', 'admin', 1),
@@ -69,7 +78,7 @@ VALUES
     (default, 'User3', 'user3@gmail.com', 'password3', 0),
     (default, 'User4', 'user4@gmail.com', 'password4', 0);
 
-INSERT INTO code (idcode, code_value, quantity, used)
+INSERT INTO code (idcode, designation, valeur, etat)
 VALUES
     (default, '830203956128502', 1000, 0),
     (default, '426395048362026', 1000, 0),
@@ -108,6 +117,7 @@ VALUES
     (default, 15, 'medium'),
     (default, 20, 'hard');
 
+
 CREATE TABLE plat (
   id SERIAL PRIMARY KEY,
   nom VARCHAR(100) NOT NULL,
@@ -135,3 +145,4 @@ INSERT INTO plat (nom, categorie, calories, image) VALUES ('Riz brun avec légum
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Smoothie protéiné aux fruits et beurre de cacahuète', 'gagne', 350);
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Salade de quinoa avec avocat et poulet', 'gagne', 300);
 INSERT INTO plat (nom, categorie, calories, image) VALUES ('Yaourt grec avec noix et miel', 'gagne', 200);
+
