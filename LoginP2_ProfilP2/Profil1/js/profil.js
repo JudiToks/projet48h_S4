@@ -1,9 +1,8 @@
 (function($) {
-
     var form = $("#signup-form");
     form.validate({
         errorPlacement: function errorPlacement(error, element) {
-             element.before(error); 
+            element.before(error);
         },
         rules: {
             poids: {
@@ -34,53 +33,52 @@
         onfocusout: function(element) {
             $(element).valid();
         },
-        highlight : function(element, errorClass, validClass) {
-            $(element).parent().parent().find('.form-group').addClass('form-error');
-            $(element).removeClass('valid');
-            $(element).addClass('error');
+        highlight: function(element, errorClass, validClass) {
+            $(element)
+                .parent()
+                .parent()
+                .find(".form-group")
+                .addClass("form-error");
+            $(element).removeClass("valid");
+            $(element).addClass("error");
         },
         unhighlight: function(element, errorClass, validClass) {
-            $(element).parent().parent().find('.form-group').removeClass('form-error');
-            $(element).removeClass('error');
-            $(element).addClass('valid');
-        }
+            $(element)
+                .parent()
+                .parent()
+                .find(".form-group")
+                .removeClass("form-error");
+            $(element).removeClass("error");
+            $(element).addClass("valid");
+        },
     });
+
     form.steps({
         headerTag: "h3",
         bodyTag: "fieldset",
         transitionEffect: "fade",
         labels: {
-            previous : 'Précédent',
-            next : 'Suivant',
-            finish : 'Terminer',
-            current : ''
+            previous: "Précédent",
+            next: "Suivant",
+            current: "",
         },
-        titleTemplate : '<h3 class="title">#title#</h3>',
-        onInit : function (event, currentIndex) { 
-            // Suppress (skip) "Warning" step if the user is old enough.
-            if(currentIndex === 0) {
-                form.find('.actions').addClass('test');
+        titleTemplate: '<h3 class="title">#title#</h3>',
+        onInit: function(event, currentIndex) {
+            if (currentIndex === 0) {
+                form.find(".actions").addClass("test");
             }
         },
-        onStepChanging: function (event, currentIndex, newIndex)
-        {
+        onStepChanging: function(event, currentIndex, newIndex) {
             form.validate().settings.ignore = ":disabled,:hidden";
             return form.valid();
         },
-        onFinishing: function (event, currentIndex)
-        {
+        onFinishing: function(event, currentIndex) {
             form.validate().settings.ignore = ":disabled";
             return form.valid();
         },
-        onFinished: function (event, currentIndex)
-        {
-            alert('Sumited');
+        onStepChanged: function(event, currentIndex, priorIndex) {
+            // Code to be executed after each step change (if needed)
         },
-        onStepChanged: function (event, currentIndex, priorIndex)
-        {
-
-         
-        }
     });
 
     jQuery.extend(jQuery.validator.messages, {
@@ -93,19 +91,20 @@
         number: "",
         digits: "",
         creditcard: "",
-        equalTo: ""
+        equalTo: "",
     });
-       
- })(jQuery);
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('.your_picture_image')
-                .attr('src', e.target.result);
-        };
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-        reader.readAsDataURL(input.files[0]);
+            reader.onload = function(e) {
+                $(".your_picture_image").attr("src", e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-}
+
+    $("#submit-button").attr("href", "page rediriger");
+})(jQuery);
