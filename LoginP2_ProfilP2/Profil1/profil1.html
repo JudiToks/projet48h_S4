@@ -1,6 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,68 +8,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="author" content="colorlib.com">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/finalisation_login.css">
+    <link rel="stylesheet" href="css/profil.css">
 </head>
 <body>
 
 <div class="main">
-
     <div class="container">
-
-        <h2><img src="<?php echo base_url(); ?>assets/images/logo6.png" style=" height: 110px;"></h2>
+        <h2><img src="images/logo6.png" style="height: 110px;"></h2>
         <form method="post" id="signup-form" class="signup-form" enctype="multipart/form-data" action="<?php echo base_url('acceuil/index'); ?>">
-            <h3>
-                A remplir
-            </h3>
+            <h3>A remplir</h3>
             <fieldset>
                 <div class="form-row">
                     <div class="form-file">
-                        <input type="file" class="inputfile" name="your_picture" id="your_picture"  onchange="readURL(this);" data-multiple-caption="{count} files selected" multiple />
+                        <input type="file" class="inputfile" name="your_picture" id="your_picture" onchange="readURL(this);" data-multiple-caption="{count} files selected" multiple />
                         <label for="your_picture">
                             <figure>
-                                <img src="<?php echo base_url(); ?>assets/images/your-picture.png" alt="" class="your_picture_image">
+                                <img src="images/your-picture.png" alt="" class="your_picture_image">
                             </figure>
                             <span class="file-button">Choisir la photo</span>
                         </label>
                     </div>
                     <div class="form-group-flex">
                         <div class="form-group">
-                            <input type="text" name="poids" id="poids" placeholder="Poids" />
+                            <input type="number" name="poids" id="poids" placeholder="Poids" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="taille" id="taille" placeholder="Taille" />
+                            <input type="number" name="taille" id="taille" placeholder="Taille" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="age" id="age" placeholder="Âge" />
+                            <input type="number" name="age" id="age" placeholder="Âge" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adresse" id="adresse" placeholder="Adresse" />
                         </div>
                     </div>
+                    
                 </div>
-            </fieldset>
-
-            <h3>
-                Adresse
-            </h3>
-            <fieldset>
-                <div class="form-row form-input-flex">
-                    <div class="form-input">
-                        <input type="text" name="Adresse" id="street_name" placeholder="Adresse" />
-                    </div>
+                <div class="actions">
+                    <button class="btn" type="submit"><a style="text-decoration: none; color: white" id="submit-button">Terminer</a></button>
                 </div>
+                <!-- <li aria-hidden="false" style="display: list-item;"><a href="" role="menuitem"></a></li> -->
             </fieldset>
-            <div class="actions">
-                <button class="btn" type="submit"><a style="text-decoration: none; color: white" id="submit-button">Terminer</a></button>
-            </div>
+           
         </form>
     </div>
-
 </div>
 
 <!-- JS -->
-<script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/jquery-steps/jquery.steps.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/finalisation_login.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
+<script src="vendor/jquery-steps/jquery.steps.min.js"></script>
+<script src="js/profil.js"></script>
 
 </body>
 </html>

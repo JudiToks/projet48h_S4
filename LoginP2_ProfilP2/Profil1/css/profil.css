@@ -71,7 +71,7 @@ h2 {
   text-transform: uppercase;
   text-align: center;
   margin: 0px;
-  padding-top: 30px; }
+  padding-top: 14px; }
 
 h3 {
   font-size: 18px;
@@ -302,9 +302,9 @@ fieldset.current {
   color: #999999;
   border: 1px solid #ebebeb; }
 .actions ul li:nth-child(2), .actions ul li:last-child {
-  float: right; }
+  display: none; }
 .actions ul li a {
-  width: 140px;
+  width: 100px;
   height: 50px;
   color: #fff;
   background: #1ed760;
@@ -362,6 +362,7 @@ fieldset.current {
   border-radius: 50%; }
 
 .form-row {
+  margin-top: -4em;
   justify-content: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
@@ -445,6 +446,7 @@ label.error {
 /*# sourceMappingURL=style.css.map */
 .btn
 {
+  margin-left: -72px;
   background-color: #1ed760;
   border: none;
   border-radius: 5px;
