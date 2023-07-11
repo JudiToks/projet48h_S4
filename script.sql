@@ -107,3 +107,31 @@ VALUES
     (default, 10, 'easy'),
     (default, 15, 'medium'),
     (default, 20, 'hard');
+
+CREATE TABLE plat (
+  id SERIAL PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  categorie VARCHAR(100) NOT NULL,
+  calories DECIMAL(10,2) NOT NULL,
+  image VARCHAR(100)
+);
+
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Salade de poulet grillé', 'perdre',300);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Saumon poché avec légumes vapeur', 'perdre',400);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Wraps aux légumes', 'perdre',250);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Bol de quinoa aux légumes rôtis', 'perdre',350);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Salade de crevettes et avocat', 'perdre',200);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Soupe aux légumes', 'perdre',150);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Omelette aux légumes', 'perdre',250);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Poulet rôti avec légumes sautés', 'perdre',400);
+INSERT INTO plat (nom,categorie, calories, image) VALUES ('Pâtes aux légumes grillés', 'perdre',350);
+
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Steak de bœuf', 'gagne', 400);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Poulet grillé', 'gagne', 350);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Saumon grillé', 'gagne', 300);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Omelette aux légumes et fromage', 'gagne', 250);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Pâtes au pesto de basilic et poulet', 'gagne', 450);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Riz brun avec légumes et tofu', 'gagne', 400);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Smoothie protéiné aux fruits et beurre de cacahuète', 'gagne', 350);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Salade de quinoa avec avocat et poulet', 'gagne', 300);
+INSERT INTO plat (nom, categorie, calories, image) VALUES ('Yaourt grec avec noix et miel', 'gagne', 200);
