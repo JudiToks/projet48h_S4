@@ -1,25 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="colorlib.com">
+    <meta name="author" content="colorlib.com">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
 
     <!-- Font Icon -->
-    
+
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/profil.css">
 </head>
+
 <body>
 
     <div class="main">
 
         <div class="container">
-           
+
             <h2><img src="images/logo7.png" style=" height: 110px;"></h2>
             <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
                 <h3>
@@ -28,7 +29,7 @@
                 <fieldset>
                     <div class="form-row">
                         <div class="form-file">
-                            <input type="file" class="inputfile" name="your_picture" id="your_picture"  onchange="readURL(this);" data-multiple-caption="{count} files selected" multiple />
+                            <input type="file" class="inputfile" name="your_picture" id="your_picture" onchange="readURL(this);" data-multiple-caption="{count} files selected" multiple />
                             <label for="your_picture">
                                 <figure>
                                     <img src="images/your-picture.png" alt="" class="your_picture_image">
@@ -57,7 +58,17 @@
                     <div class="form-radio">
                         <label for="job" class="label-radio">Type de régime</label>
                         <div class="form-flex">
-                         
+                            <a href="<?php echo site_url('balita/choix_regime'); ?>" class="button green">Cliquez ici commencer un nouveau regime</a>
+                            <style>
+                                .button.green {
+                                    background-color: green;
+                                    color: white;
+                                    padding: 10px 20px;
+                                    border: none;
+                                    text-decoration: none;
+                                    cursor: pointer;
+                                }
+                            </style>
                         </div>
                     </div>
                 </fieldset>
@@ -85,4 +96,5 @@
     <script src="js/profil.js"></script>
 
 </body>
+
 </html>
