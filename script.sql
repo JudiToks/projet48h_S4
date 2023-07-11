@@ -15,6 +15,7 @@ create table details_user(
     iduser int references user(iduser),
     age int,
     taille int,
+    poids double precision,
     sexe varchar(10),
     adresse varchar(30),
     img varchar(50)
