@@ -20,15 +20,6 @@ create table details_user(
     img varchar(50)
 );
 
-create table transaction(
-    idtransaction serial primary key,
-    iduser int references user(iduser),
-    money_entre double precision,
-    money_sortie double precision,
-    money double precision,
-    temps timestamp
-);
-
 create table code(
     idcode serial primary key,
     designation varchar(20),
@@ -69,6 +60,14 @@ create table convention(
     categorie_regime varchar(10)
 );
 
+create table transaction(
+    idtransaction serial primary key,
+    iduser int references user(iduser),
+    money_entre double precision,
+    money_sortie double precision,
+    money double precision,
+    temps timestamp
+);
 
 INSERT INTO user(iduser, username, mail, mdp, type)
 VALUES
